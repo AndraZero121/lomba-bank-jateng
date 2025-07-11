@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payroll_run', function (Blueprint $table) {
             $table->id();
-            $table->string('periode_gaji', 7)->comment('Format: YYYY-MM')->nullable();
+            $table->string('periode_gaji', 50)->comment('Format: YYYY-MM')->nullable();
             $table->timestamp('tanggal_eksekusi')->nullable();
             $table->enum('status', ['Draft', 'Final', 'Approve', 'Paid'])->default('Draft')->nullable();
             $table->integer('dieksekusi_oleh')->nullable();

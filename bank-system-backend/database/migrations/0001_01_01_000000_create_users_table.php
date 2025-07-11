@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('roles', ['Admin', 'HR', 'Karyawan'])->default('Karyawan');
+            $table->string('otp_code')->nullable();
+            $table->timestamp('otp_expires_at')->nullable();
+            $table->boolean('is_verified')->default(false);
+            // $table->foreignId('id_karyawan')->nullable()->constrained('karyawans')->onDelete('set null');
             $table->timestamps();
         });
 
